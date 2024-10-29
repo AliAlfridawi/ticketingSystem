@@ -1,18 +1,16 @@
 const pg = require('pg');
+const { sendEmail} = require('./sendEmail');
+
 async function uploadData(client,dataToInsert)
 {
-    /*client.query(query,values)
-        .then(res => {
-            console.log('Data inserted successfully');
-        })
-        .catch(err =>
-        {
-            console.error('Error inserting data:', err);
-        })*/
     try
     {
-        
-        client.query(query,values);
+        const query = "INSERT INTO mocksystem VALUES($1,$2,$3,true)";
+        const values = [dataToInsert.name,dataToInsert.description,dataToInsert.priority]
+        const res = await client.query(query,values);
+        console.log('Data successfully uploaded');
+        await sendEmail(dataToInsert);
+        return res
     }
     catch(err)
     {

@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 const { deleteData } = require('./deleteFunction');
 const { uploadData} = require('./uploadFunction');
-const env = require('dotenv').config();
+require('dotenv').config();
 
 
 const client = new Client({
@@ -21,8 +21,8 @@ const dataToUpload = {
 async function main() {
     try {
         await client.connect();
-        await deleteData(client, false);
-        await console.log(client.query("select * from mocksystem"));
+        //await uploadData(client, dataToUpload);
+        await deleteData(client,true);
     } catch (err) {
         console.error('Error in main:', err);
     } finally {

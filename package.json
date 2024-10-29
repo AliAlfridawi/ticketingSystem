@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AliAlfridawi/ticketingSystem#readme",
   "dependencies": {
+    "nodemailer": "^6.9.16",
     "pg": "^8.13.0"
   }
 }
