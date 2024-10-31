@@ -21,8 +21,8 @@ const dataToUpload = {
 async function main() {
     try {
         await client.connect();
-        //await uploadData(client, dataToUpload);
-        await deleteData(client,true);
+        await uploadData(client, dataToUpload);
+        //await deleteData(client,true);
     } catch (err) {
         console.error('Error in main:', err);
     } finally {
